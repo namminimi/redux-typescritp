@@ -2,6 +2,8 @@
 //1. 액션타입
 //action.type 이 string으로 추론되지 않고 'counter/INCREASE' 와 같이
 //실제 문자열을 추론되도록 as const 붙임
+
+
 const INCREASE = "counter/INCREASE" as const;
 const DECREASE = "counter/DECREASE" as const;
 
@@ -16,12 +18,12 @@ export const increase = () => ({type: INCREASE})
 /* const decrease = () => {
     return {type: DECREASE}
 } */ //리턴해주는 얘가 객체일때 소괄호 작성
-
 export const decrease = () => ({type: DECREASE})
 
 
 //액션객체에 대한 타입 (ReturnType<typeof 메모장 확인)
 type CounterAction = ReturnType<typeof increase> | ReturnType<typeof decrease>
+
 
 //상태에 대한 타입 설정하고 초기상태 설정
 type CounterState = {count: number}

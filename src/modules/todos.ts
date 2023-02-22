@@ -1,12 +1,15 @@
-//액션 생성, 액션 생성함수, 리듀서
 
 //1.액션타입
+//type-action 적용전
 const ADD_TODO = "todos/ADD_TODO" as const
 const REMOVE_TODO = "todos/REMOVE_TODO" as const
 const TOGGLE_TODO = "todos/TOGGLE_TODO" as const
 
+
+
 //t새로운 항목 추가할때 사용할 id값
 let nextId = 1;
+
 
 //2.액션 생성 함수
 export const addTodo = (text:string) => ({
@@ -27,10 +30,13 @@ export const removeTodo = (id:number) => ({
     payload: id
 })
 
+
 //ReturnType<typeof addTodo> 특정함수의 리턴타입을 추론
 type TodoAction = ReturnType<typeof addTodo> 
 | ReturnType<typeof removeTodo> 
 |ReturnType<typeof toggleTodo> 
+
+
 
 //상태에서 사용할 할일 항목의 타입정의
 export type Todo ={
@@ -45,6 +51,7 @@ export type TodoState = Todo[]
 const initialState: TodoState = [];
 
 //3. 리듀서 함수 - state타입 action타입지정
+//type-action 적용전
 function todos(state: TodoState= initialState, action:TodoAction){
     switch(action.type){
         case ADD_TODO:
@@ -68,4 +75,5 @@ function todos(state: TodoState= initialState, action:TodoAction){
             return state    
     }
 }
+
 export default todos;
