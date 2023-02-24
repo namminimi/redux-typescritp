@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import CounterContainer from './containers/CounterContainer';
 import TodosContainer from './containers/TodosContainer';
+import GithubContainer from './containers/GithubContainer';
 
 interface Person {
   name: string
@@ -20,6 +21,7 @@ function App() {
     <div className="App">
       <CounterContainer/>
       <TodosContainer/>
+      <GithubContainer/>
     </div>
   );
 }
